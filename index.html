@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Simulador — Escolha</title>
+    <link rel="stylesheet" href="Style/cor.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo">
+        <img src="imagem.capitalPlusAzul.jpeg" alt="Logo Banco" />
+      </div>
+    </header>
+
+    <main class="container center">
+      <h1>Escolha a Página</h1>
+      <div class="grid-2">
+        <button class="btn btn-large" onclick="window.location.href='acrescimo.html'">Acréscimo</button>
+        <button class="btn btn-large" onclick="window.location.href='desconto.html'">Desconto</button>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <small>© <span id="ano"></span> Simulador</small>
+    </footer>
+
+    <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+  </body>
+</html>

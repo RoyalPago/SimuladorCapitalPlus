@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Desconto — Simulador</title>
+    <link rel="stylesheet" href="Style/cor.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="logo" aria-hidden="false">
+        <img src="imagem.capitalPlusAzul.jpeg" alt="Logo Banco" />
+      </div>
+    </header>
+
+    <main class="container" id="main">
+      <div class="top-row">
+        <h1>Desconto</h1>
+        <nav aria-label="Ações rápidas" class="action-group">
+          <button type="button" class="btn btn-ghost" onclick="window.location.href='index.html'">Voltar</button>
+          <button type="button" class="btn" onclick="window.location.href='acrescimo.html'">Acréscimo</button>
+        </nav>
+      </div>
+
+      <form id="descontoForm" class="form" onsubmit="event.preventDefault(); calcularDesconto();">
+        <label for="Tabela">Escolha o Cap</label>
+        <select id="Tabela" name="tabela" required>
+          <option value="Tabela 22">Cap 22</option>
+          <option value="Tabela 24">Cap 24</option>
+          <option value="Tabela 25">Cap 25</option>
+          <option value="Tabela 26">Cap 26</option>
+          <option value="Tabela 27">Cap 27</option>
+          <option value="Tabela 28">Cap 28</option>
+          <option value="Tabela 30">Cap 30</option>
+          <option value="Tabela 32">Cap 32</option>
+          <option value="Tabela 34">Cap 34</option>
+        </select>
+
+        <label for="bandeira">Escolha a Bandeira</label>
+        <select id="bandeira" name="bandeira" onchange="verificarBandeira()" required>
+          <option value="visamaster">Visa / Mastercard</option>
+          <option value="elohiper">Elo / Hipercard</option>
+          <option value="amex">American Express</option>
+          <option value="debito">Débito</option>
+        </select>
+
+        <label for="parcelas">Parcelas</label>
+        <select id="parcelas" name="parcelas" required></select>
+
+        <label for="valor">Valor (R$)</label>
+        <input type="number" id="valor" name="valor" inputmode="decimal" min="0" step="0.01" placeholder="0,00" required />
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Calcular</button>
+          <button type="button" class="btn btn-outline" onclick="limparDesconto()">Limpar</button>
+        </div>
+      </form>
+
+      <section class="resultado" id="resultado" aria-live="polite">
+        <p>Preencha os campos e clique em "Calcular" para ver o resultado.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <small>© <span id="ano"></span> Simulador • Todos os direitos reservados</small>
+    </footer>
+
+    <script>
+      document.getElementById('ano').textContent = new Date().getFullYear();
+      function limparDesconto(){
+        const form = document.getElementById('descontoForm');
+        if(form) form.reset();
+        if(window.verificarBandeira) verificarBandeira();
+        const resultado = document.getElementById('resultado');
+        if(resultado) resultado.innerHTML = '<p>Preencha os campos e clique em "Calcular" para ver o resultado.</p>';
+        const first = document.querySelector('#descontoForm input, #descontoForm select');
+        if(first) first.focus();
+      }
+    </script>
+    <script src="scripts/desconto.js" defer></script>
+  </body>
+</html>
