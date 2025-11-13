@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Simulador — Escolha</title>
+    <title>Simulador - Capital Plus</title>
     <link rel="stylesheet" href="Style/cor.css" />
+    <link rel="icon" href="imagem.capitalPlusAzul.ico" />
   </head>
   <body>
     <header class="site-header">
@@ -16,15 +17,27 @@
     <main class="container center">
       <h1>Escolha a Página</h1>
       <div class="grid-2">
-        <button class="btn btn-large" onclick="window.location.href='acrescimo.html'">Acréscimo</button>
-        <button class="btn btn-large" onclick="window.location.href='desconto.html'">Desconto</button>
+        <button
+          class="btn btn-large"
+          onclick="window.location.href='acrescimo.html'"
+        >
+          Acréscimo
+        </button>
+        <button
+          class="btn btn-large"
+          onclick="window.location.href='desconto.html'"
+        >
+          Desconto
+        </button>
       </div>
     </main>
 
     <footer class="site-footer">
-      <small>© <span id="ano"></span> Simulador</small>
+      <small>© <span id="ano"></span> Capital Plus</small>
     </footer>
 
-    <script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+    <script>
+      document.getElementById("ano").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
