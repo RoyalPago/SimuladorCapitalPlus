@@ -18,14 +18,14 @@
   </head>
   <body>
     <header class="site-header">
-      <div class="logo" aria-hidden="false">
+      <div class="logo">
         <img src="imagem.capitalPlusAzul.jpeg" alt="Logo Banco" />
       </div>
     </header>
 
-    <main class="container" id="main">
+    <main class="container">
       <div class="top-row">
-        <h1>Desconto</h1>
+        <h1>Acréscimo</h1>
         <nav aria-label="Ações rápidas" class="action-group">
           <button
             type="button"
@@ -37,17 +37,17 @@
           <button
             type="button"
             class="btn"
-            onclick="window.location.href='acrescimo.html'"
+            onclick="window.location.href='desconto.html'"
           >
-            Acréscimo
+            Desconto
           </button>
         </nav>
       </div>
 
       <form
-        id="descontoForm"
+        id="acrescimoForm"
         class="form"
-        onsubmit="event.preventDefault(); calcularDesconto();"
+        onsubmit="event.preventDefault(); calcularPagamento();"
       >
         <label for="Tabela">Escolha o Cap</label>
         <select id="Tabela" name="tabela" required>
@@ -92,17 +92,13 @@
 
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">Calcular</button>
-          <button
-            type="button"
-            class="btn btn-outline"
-            onclick="limparDesconto()"
-          >
+          <button type="button" class="btn btn-outline" onclick="limparAcre()">
             Limpar
           </button>
         </div>
       </form>
 
-      <section class="resultado" id="resultado" aria-live="polite">
+      <section class="resultado" id="resultado">
         <p>Preencha os campos e clique em "Calcular" para ver o resultado.</p>
       </section>
     </main>
@@ -113,8 +109,8 @@
 
     <script>
       document.getElementById("ano").textContent = new Date().getFullYear();
-      function limparDesconto() {
-        const form = document.getElementById("descontoForm");
+      function limparAcre() {
+        const form = document.getElementById("acrescimoForm");
         if (form) form.reset();
         if (window.verificarBandeira) verificarBandeira();
         const resultado = document.getElementById("resultado");
@@ -122,11 +118,11 @@
           resultado.innerHTML =
             '<p>Preencha os campos e clique em "Calcular" para ver o resultado.</p>';
         const first = document.querySelector(
-          "#descontoForm input, #descontoForm select"
+          "#acrescimoForm input, #acrescimoForm select"
         );
         if (first) first.focus();
       }
     </script>
-    <script src="scripts/desconto.js" defer></script>
+    <script src="scripts/acrescimo.js" defer></script>
   </body>
 </html>
